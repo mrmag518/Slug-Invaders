@@ -18,7 +18,7 @@ Features so far:
   * Special weaponry/perks is being worked on. The only "perk" currently 100% working is the Salt Wave.
 * Local highscores. (Todo: Encrypt/obscure the data or something to make manual editing of the data more difficult, if not impossible)
 * Supports a lot of different gamepads using Jamepad(https://github.com/williamahartman/Jamepad) as a dependency. Personally being tested with a Xbox One controller on Windows 10.
-* Needs work on navigation in menus though. But 100% supported once you are in-game.
+  * Needs work on navigation in menus though. But 100% supported once you are in-game.
 
 Major Todo List (Will always be stuff added/changed/improved outside of this list aswell):
 * More slug types and variation in art, and possibly behaviour aswell. Definitely different attributes for each new type.
