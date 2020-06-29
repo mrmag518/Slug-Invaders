@@ -8,6 +8,8 @@ However if the slugs are successful in stealing all your plants, they will event
 
 This project/game is work in progress, and only worked on now and then, as a hobby. You can't ever know when the last commit will be pushed. Maybe it has, probably not.
 
+BTW, NB: THIS PROJECT WAS ORIGINALLY JUST A VERY QUICK SCHOOL PROJECT. THUS THE CODE WILL BE MESSY IN MANY PLACES, AND PROBABLY UNOPTIMIZED. YOUR EYES HAVE BEEN WARNED.
+
 Features so far:
 * Very playable. But:
   * Wave logic and continuous generation is completed. However variety is on the todo list, and the generation probably needs some more tuning.
