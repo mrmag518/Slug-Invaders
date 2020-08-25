@@ -16,15 +16,15 @@ import slug.invaders.GameWindow;
 import slug.invaders.Main;
 import slug.invaders.assets.ImageCache;
 import slug.invaders.assets.sounds.SoundLib;
-import slug.invaders.data.AmmoReceived;
-import slug.invaders.data.BloodPool;
-import slug.invaders.data.Lane;
-import slug.invaders.data.Player;
-import slug.invaders.data.SaltBomb;
-import slug.invaders.data.SaltBucket;
-import slug.invaders.data.SaltWave;
-import slug.invaders.data.WaveManager;
-import slug.invaders.data.WavePerk;
+import slug.invaders.compute.AmmoReceived;
+import slug.invaders.compute.BloodPool;
+import slug.invaders.compute.Lane;
+import slug.invaders.compute.Player;
+import slug.invaders.compute.SaltBomb;
+import slug.invaders.compute.SaltBucket;
+import slug.invaders.compute.SaltWave;
+import slug.invaders.compute.WaveManager;
+import slug.invaders.compute.WavePerk;
 import slug.invaders.util.Input;
 import slug.invaders.util.Log;
 import slug.invaders.util.Loop;
@@ -211,7 +211,7 @@ public class PlayScreen implements Screen {
             ar.render(g);
         }
         
-        for(SaltBomb bomb : bombs) {
+        /*for(SaltBomb bomb : bombs) {
             bomb.move();
             
             if(bomb.getState() == SaltBomb.SaltBombState.EXPLODING) {
@@ -219,7 +219,7 @@ public class PlayScreen implements Screen {
             } else {
                 bomb.draw(g);
             }
-        }
+        }*/
         
         if(saltWave != null) {
             saltWave.draw(g);
@@ -254,7 +254,10 @@ public class PlayScreen implements Screen {
         return bombs;
     }
     
+    @Deprecated
     public void spawnBomb() {
+        if(true) return;
+        
         Log.info("[PlayScreen] Spawning bomb ..");
         SaltBomb bomb = new SaltBomb(Main.rand.nextInt(Config.GAME_WIDTH - ImageCache.SALT_BOMB_1.getWidth()));
         bombs.add(bomb);

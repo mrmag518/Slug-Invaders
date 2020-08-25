@@ -1,4 +1,4 @@
-package slug.invaders.data;
+package slug.invaders.compute;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

@@ -12,7 +12,7 @@ import java.io.IOException;
 import javax.swing.JFrame;
 import kuusisto.tinysound.TinySound;
 import slug.invaders.assets.ImageCache;
-import slug.invaders.data.WaveManager;
+import slug.invaders.compute.WaveManager;
 import slug.invaders.screens.MenuScreen;
 import slug.invaders.screens.PlayScreen;
 import slug.invaders.screens.ScreenManager;
@@ -109,6 +109,9 @@ public class GameWindow {
                     }
                 }
                 
+                /**
+                 * Debug / cheats
+                 */
                 if(e.isControlDown() && e.isControlDown()) {
                     if(ScreenManager.getCurrentScreen() instanceof PlayScreen) {
                         PlayScreen screen = (PlayScreen)ScreenManager.getCurrentScreen();

@@ -1,4 +1,4 @@
-package slug.invaders.data;
+package slug.invaders.compute;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -32,7 +32,6 @@ public class SaltBomb {
     }
     
     public void explode() {
-        Log.info("[SaltBomb] Exploding ..");
         setState(SaltBombState.EXPLODING);
         
     }

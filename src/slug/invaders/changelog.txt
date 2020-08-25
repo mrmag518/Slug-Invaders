@@ -3,6 +3,8 @@ TODO:
 - Finish salt bomb feature.
 -- Explode salt onto the ground that damages slugs.
 -- If the bomb itself hits the player (not explosion), player dies or some other consequence (slowed/stunned?).
+- Improve slug AI a lot.
+- A salt gun or perk or something where the salt bullet penetrates every slug in that lane, railgun ish.
 
 Version 1.5 (Alpha)
 * General fixes and improvements all over the place.
