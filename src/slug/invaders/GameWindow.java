@@ -2,6 +2,7 @@ package slug.invaders;
 
 import com.studiohartman.jamepad.ControllerManager;
 import com.studiohartman.jamepad.ControllerState;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.KeyAdapter;
@@ -9,8 +10,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+
 import javax.swing.JFrame;
+
 import kuusisto.tinysound.TinySound;
+
 import slug.invaders.assets.ImageCache;
 import slug.invaders.compute.WaveManager;
 import slug.invaders.screens.MenuScreen;
@@ -34,18 +38,18 @@ public class GameWindow {
     }
     
     public void run() {
-        Log.info("[GameWindow] Initializing sound lib .. ");
-        long startSoundLib = System.currentTimeMillis();
-        TinySound.init();
-        Log.info("[GameWindow] Sound lib initialized. (TinySound by Finn Kuusisto) - Took " + (System.currentTimeMillis()-startSoundLib) + "ms");
         GameWindow.instance = this;
+        
+        setupFrame();
+        
+        new Thread(() -> {
+            Log.info("[GameWindow] Initializing sound lib .. ");
+            long startSoundLib = System.currentTimeMillis();
+            TinySound.init();
+            Log.info("[GameWindow] Sound lib initialized. (TinySound by Finn Kuusisto) - Took " + (System.currentTimeMillis()-startSoundLib) + "ms");
+        }).start();
+        
         //Util.setMainIcon(frame);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setupPanel();
-        frame.add(panel);
-        frame.setResizable(false);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
         try {
             ImageCache.load();
         } catch (IOException ex) {
@@ -65,7 +69,7 @@ public class GameWindow {
         loadGlobalInputHandlers();
         
         frame.setVisible(true);
-        Log.info("[GameWindow] Window should now be visible and ready.");
+        //Log.info("[GameWindow] Window should now be visible and ready.");
         
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -76,10 +80,16 @@ public class GameWindow {
         });
     }
     
-    private void setupPanel() {
+    public void setupFrame() {
         panel.setPreferredSize(new Dimension(Config.GAME_WIDTH, Config.GAME_HEIGHT));
         panel.setFocusable(true);
         panel.setBackground(Color.gray);
+        
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(panel);
+        frame.setResizable(false);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
     }
     
     private void loadGlobalInputHandlers() {
